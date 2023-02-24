@@ -76,4 +76,19 @@ class MapTests {
         Assertions.assertThat(map.getMap()).isEqualTo(map2);
     }
 
+@Test
+    void roverGetsSetOnMapWithIndicationOfDirectionWhichIsNotAllowed() {
+        Map map = new Map();
+        String[][] map2 = new String[][]{
+                {"S", " ", " ", " ", " "},
+                {" ", " ", " ", " ", " "},
+                {" ", " ", " ", " ", " "},
+                {" ", " ", " ", " ", " "},
+                {" ", " ", " ", " ", " "}
+        };
+        map.createField(5, 5);
+        map.setRover(0, 0, 'A');
+        Assertions.assertThat(map.getMap()).isEqualTo(map2);
+    }
+
 }
