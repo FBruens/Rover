@@ -19,7 +19,10 @@ public class Map {
     public void setRover(int x, int y) {
         map[x][y] = "S";
     }
+
     public void setRover(int x, int y, char direction) {
-        map[x][y] = String.valueOf(direction);
+        if (direction == 'N' || direction == 'E' || direction == 'S' || direction == 'W') {
+            map[x][y] = String.valueOf(direction);
+        } else map[x][y] = "S";
     }
 }
