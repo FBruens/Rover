@@ -45,4 +45,18 @@ class MapTests {
         map.setRover(0, 0);
         Assertions.assertThat(map.getMap()).isEqualTo(map2);
     }
+    @Test
+    void roverGetsSetOnMapInTheMiddle() {
+        Map map = new Map();
+        String[][] map2 = new String[][]{
+                {" ", " ", " ", " ", " "},
+                {" ", " ", " ", " ", " "},
+                {" ", " ", "R", " ", " "},
+                {" ", " ", " ", " ", " "},
+                {" ", " ", " ", " ", " "}
+        };
+        map.createField(5, 5);
+        map.setRover(2, 2);
+        Assertions.assertThat(map.getMap()).isEqualTo(map2);
+    }
 }
