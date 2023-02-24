@@ -9,4 +9,8 @@ public class Map {
     public String[][] getMap() {
         return this.map;
     }
+
+    public void setRover(int x, int y) {
+
+    }
 }
