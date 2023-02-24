@@ -59,4 +59,20 @@ class MapTests {
         map.setRover(2, 2);
         Assertions.assertThat(map.getMap()).isEqualTo(map2);
     }
+
+    @Test
+    void roverGetsSetOnMapWithIndicationOfDirection() {
+        Map map = new Map();
+        String[][] map2 = new String[][]{
+                {"E", " ", " ", " ", " "},
+                {" ", " ", " ", " ", " "},
+                {" ", " ", " ", " ", " "},
+                {" ", " ", " ", " ", " "},
+                {" ", " ", " ", " ", " "}
+        };
+        map.createField(5, 5);
+        map.setRover(0, 0, 'E');
+        Assertions.assertThat(map.getMap()).isEqualTo(map2);
+    }
+
 }
