@@ -17,6 +17,6 @@ public class Map {
     }
 
     public void setRover(int x, int y) {
-        map[x][y] = "R";
+        map[x][y] = "S";
     }
 }
