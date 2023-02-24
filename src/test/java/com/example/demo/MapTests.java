@@ -9,35 +9,40 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class MapTests {
 
-	@ParameterizedTest
-	@CsvSource(
-			{"1,1",
-			"2,2",
-			"5,5",
-			"80,30",
-			"5,50",
-			"10,20"
-			}
-	)
-	void mapGetsInitialized(int xCoordinate, int yCoordinate) {
-		Map map = new Map();
-		String[][] map2 = new String[xCoordinate][yCoordinate];
-		map.createField(xCoordinate,yCoordinate);
-		Assertions.assertThat(map.getMap()).isEqualTo(map2);
-	}
+    @ParameterizedTest
+    @CsvSource(
+            {"1,1",
+                    "2,2",
+                    "5,5",
+                    "80,30",
+                    "5,50",
+                    "10,20"
+            }
+    )
+    void mapGetsInitialized(int xCoordinate, int yCoordinate) {
+        Map map = new Map();
+        String[][] map2 = new String[xCoordinate][yCoordinate];
+        map.createField(xCoordinate, yCoordinate);
+        //Anzahl an Reihen Identisch?
+        Assertions.assertThat(map.getMap().length).isEqualTo(map2.length);
+        for (int row = 0; row < map2.length; row++) {
+            //Anzahl an Spalten Identisch?
+            Assertions.assertThat(map.getMap()[row].length).isEqualTo(map2[row].length);
+        }
+    }
 
-	@Test
-	void roverGetsSetOnMap() {
-		Map map = new Map();
-		String[][] map2 = new String[][]{
-			{"R"," "," "," "," "},
-			{" "," "," "," "," "},
-			{" "," "," "," "," "},
-			{" "," "," "," "," "},
-			{" "," "," "," "," "}
-		};
-		map.createField(5,5);
-		map.setRover(0,0);
-		Assertions.assertThat(map.getMap()).isEqualTo(map2);
-	}
+    @Test
+    void roverGetsSetOnMap() {
+        Map map = new Map();
+        String[][] map2 = new String[][]{
+                {"R", " ", " ", " ", " "},
+                {" ", " ", " ", " ", " "},
+                {" ", " ", " ", " ", " "},
+                {" ", " ", " ", " ", " "},
+                {" ", " ", " ", " ", " "}
+        };
+        map.createField(5, 5);
+        map.setRover(0, 0);
+        Assertions.assertThat(map.getMap()).isEqualTo(map2);
+    }
 }
