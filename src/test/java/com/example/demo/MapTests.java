@@ -60,18 +60,19 @@ class MapTests {
         Assertions.assertThat(map.getMap()).isEqualTo(map2);
     }
 
-    @Test
-    void roverGetsSetOnMapWithIndicationOfDirection() {
+    @ParameterizedTest
+    @CsvSource({"'N'","'E'","'S'","'W'"})
+    void roverGetsSetOnMapWithIndicationOfDirection(char direction) {
         Map map = new Map();
         String[][] map2 = new String[][]{
-                {"E", " ", " ", " ", " "},
+                {String.valueOf(direction), " ", " ", " ", " "},
                 {" ", " ", " ", " ", " "},
                 {" ", " ", " ", " ", " "},
                 {" ", " ", " ", " ", " "},
                 {" ", " ", " ", " ", " "}
         };
         map.createField(5, 5);
-        map.setRover(0, 0, 'E');
+        map.setRover(0, 0, direction);
         Assertions.assertThat(map.getMap()).isEqualTo(map2);
     }
 
