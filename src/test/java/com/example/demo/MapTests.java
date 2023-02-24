@@ -12,7 +12,7 @@ class MapTests {
 		Map map = new Map();
 		String[][] map2 = new String[5][5];
 		map.createField(5,5);
-		Assertions.assertThat(map).isEqualTo(map2);
+		Assertions.assertThat(map.getMap()).isEqualTo(map2);
 	}
 
 }
