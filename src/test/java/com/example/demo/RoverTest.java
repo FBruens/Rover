@@ -20,8 +20,12 @@ class RoverTest {
     assertEquals(0,rover.getY());
     // directionValue of the Rover
     assertEquals('S',rover.getDirection());
-
-
+}
+@Test
+    void moveRoverTest(){
+    Rover rover = new Rover(0,0,'S');
+    rover.moveRover("f");
+    assertEquals(1,rover.getY());
 }
 
 }
