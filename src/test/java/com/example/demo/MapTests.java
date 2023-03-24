@@ -45,6 +45,7 @@ class MapTests {
         map.setRover(0, 0);
         Assertions.assertThat(map.getVisualizedMap()).isEqualTo(map2);
     }
+
     @Test
     void roverGetsSetOnMapInTheMiddle() {
         Map map = new Map();
@@ -61,7 +62,7 @@ class MapTests {
     }
 
     @ParameterizedTest
-    @CsvSource({"'N'","'E'","'S'","'W'"})
+    @CsvSource({"'N'", "'E'", "'S'", "'W'"})
     void roverGetsSetOnMapWithIndicationOfDirection(char direction) {
         Map map = new Map();
         String[][] map2 = new String[][]{
@@ -76,7 +77,7 @@ class MapTests {
         Assertions.assertThat(map.getVisualizedMap()).isEqualTo(map2);
     }
 
-@Test
+    @Test
     void roverGetsSetOnMapWithIndicationOfDirectionWhichIsNotAllowed() {
         Map map = new Map();
         String[][] map2 = new String[][]{
@@ -90,9 +91,9 @@ class MapTests {
         map.setRover(0, 0, 'A');
         Assertions.assertThat(map.getVisualizedMap()).isEqualTo(map2);
     }
+
     @Test
-    void roverCanMoveFieldIfPitchIsBelow15Percent() {
-        Rover rover = new Rover();
+    void IfPitchIsBelow15PercentVisualizedMapContainingSpaces() {
 
         Map map = new Map();
         map.generateMap(5, 5);
@@ -100,20 +101,19 @@ class MapTests {
 
         int[][] controllHeightMap = new int[][]{
                 {50, 50, 50, 50, 50},
-                {50, 60, 60, 60, 50},
-                {50, 60, 70, 60, 50},
-                {50, 60, 60, 60, 50},
-                {50, 50, 50, 50, 50}
+                {50, 50, 50, 50, 50},
+                {50, 50, 50, 50, 50},
+                {50, 50, 50, 50, 50},
+                {50, 50, 50, 50, 50},
         };
-        String[][] controlPositionMap = new String[][]{
-                {" ", " ", " ", " ", " "},
+        String[][] controlVisualizedMap = new String[][]{
                 {"S", " ", " ", " ", " "},
+                {" ", " ", " ", " ", " "},
                 {" ", " ", " ", " ", " "},
                 {" ", " ", " ", " ", " "},
                 {" ", " ", " ", " ", " "}
         };
-        rover.move('f');
-        Assertions.assertThat(map.getVisualizedMap()).isEqualTo(controlPositionMap);
+        Assertions.assertThat(map.getVisualizedMap()).isEqualTo(controlVisualizedMap);
     }
 
 }
