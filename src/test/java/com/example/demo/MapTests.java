@@ -23,6 +23,7 @@ class MapTests {
         Map map = new Map();
         String[][] map2 = new String[xCoordinate][yCoordinate];
         map.generateMap(xCoordinate, yCoordinate);
+        map.setRover(0,0);
         //Anzahl an Reihen Identisch?
         Assertions.assertThat(map.getVisualizedMap().length).isEqualTo(map2.length);
         for (int row = 0; row < map2.length; row++) {
