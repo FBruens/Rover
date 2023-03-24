@@ -4,29 +4,32 @@ public class Rover {
 
     private int x;
     private int y;
-    private char direction;
+    private String  direction;
 
-    public Rover(int x, int y, char direction) {
+    private char height;
+
+    public Rover(int x, int y, String direction) {
         this.x = x;
         this.y = y;
         this.direction = direction;
     }
 
+
     public void moveRover(String movement) {
         if (movement.equals("f")) {
             switch (direction) {
-                case 'S' -> setY(-1);
-                case 'N' -> setY(+1);
-                case 'E' -> setX(+1);
-                case 'W' -> setX(-1);
+                case "S" -> setY(-1);
+                case "N" -> setY(+1);
+                case "E" -> setX(+1);
+                case "W" -> setX(-1);
             }
         }
         if (movement.equals("b")) {
             switch (direction) {
-                case 'S' -> setY(+1);
-                case 'N' -> setY(-1);
-                case 'E' -> setX(-1);
-                case 'W' -> setX(+1);
+                case "S" -> setY(+1);
+                case "N" -> setY(-1);
+                case "E" -> setX(-1);
+                case "W" -> setX(+1);
             }
         }
 
@@ -35,19 +38,19 @@ public class Rover {
     public void turnRover(String turnDirection) {
         if (turnDirection.equals("l")) {
             switch (direction) {
-                case 'N' -> setDirection('W');
-                case 'W' -> setDirection('S');
-                case 'S' -> setDirection('E');
-                case 'E' -> setDirection('N');
+                case "N" -> setDirection("W");
+                case "W" -> setDirection("S");
+                case "S" -> setDirection("E");
+                case "E" -> setDirection("N");
             }
 
         }
         if (turnDirection.equals("r")) {
             switch (direction) {
-                case 'N' -> setDirection('E');
-                case 'W' -> setDirection('N');
-                case 'S' -> setDirection('W');
-                case 'E' -> setDirection('S');
+                case "N" -> setDirection("E");
+                case "W" -> setDirection("N");
+                case "S" -> setDirection("W");
+                case "E" -> setDirection("S");
             }
 
         }
@@ -70,11 +73,11 @@ public class Rover {
         this.y += y;
     }
 
-    public char getDirection() {
+    public String  getDirection() {
         return direction;
     }
 
-    public void setDirection(char direction) {
+    public void setDirection(String  direction) {
         this.direction = direction;
     }
 }
