@@ -24,10 +24,10 @@ class MapTests {
         String[][] map2 = new String[xCoordinate][yCoordinate];
         map.createField(xCoordinate, yCoordinate);
         //Anzahl an Reihen Identisch?
-        Assertions.assertThat(map.getMap().length).isEqualTo(map2.length);
+        Assertions.assertThat(map.getRoverFieldMap().length).isEqualTo(map2.length);
         for (int row = 0; row < map2.length; row++) {
             //Anzahl an Spalten Identisch?
-            Assertions.assertThat(map.getMap()[row].length).isEqualTo(map2[row].length);
+            Assertions.assertThat(map.getRoverFieldMap()[row].length).isEqualTo(map2[row].length);
         }
     }
 
@@ -43,7 +43,7 @@ class MapTests {
         };
         map.createField(5, 5);
         map.setRover(0, 0);
-        Assertions.assertThat(map.getMap()).isEqualTo(map2);
+        Assertions.assertThat(map.getRoverFieldMap()).isEqualTo(map2);
     }
     @Test
     void roverGetsSetOnMapInTheMiddle() {
@@ -57,7 +57,7 @@ class MapTests {
         };
         map.createField(5, 5);
         map.setRover(2, 2);
-        Assertions.assertThat(map.getMap()).isEqualTo(map2);
+        Assertions.assertThat(map.getRoverFieldMap()).isEqualTo(map2);
     }
 
     @ParameterizedTest
@@ -73,7 +73,7 @@ class MapTests {
         };
         map.createField(5, 5);
         map.setRover(0, 0, direction);
-        Assertions.assertThat(map.getMap()).isEqualTo(map2);
+        Assertions.assertThat(map.getRoverFieldMap()).isEqualTo(map2);
     }
 
 @Test
@@ -88,7 +88,32 @@ class MapTests {
         };
         map.createField(5, 5);
         map.setRover(0, 0, 'A');
-        Assertions.assertThat(map.getMap()).isEqualTo(map2);
+        Assertions.assertThat(map.getRoverFieldMap()).isEqualTo(map2);
+    }
+    @Test
+    void roverCanMoveFieldIfPitchIsBelow15Percent() {
+        Rover rover = new Rover();
+
+        Map map = new Map();
+        map.createField(5, 5);
+        map.setRover(0, 0, 'S');
+
+        int[][] controllHeightMap = new int[][]{
+                {50, 50, 50, 50, 50},
+                {50, 60, 60, 60, 50},
+                {50, 60, 70, 60, 50},
+                {50, 60, 60, 60, 50},
+                {50, 50, 50, 50, 50}
+        };
+        String[][] controllPositionMap = new String[][]{
+                {" ", " ", " ", " ", " "},
+                {"S", " ", " ", " ", " "},
+                {" ", " ", " ", " ", " "},
+                {" ", " ", " ", " ", " "},
+                {" ", " ", " ", " ", " "}
+        };
+        rover.move('f');
+        Assertions.assertThat(map.getRoverFieldMap()).isEqualTo(controllPositionMap);
     }
 
 }
