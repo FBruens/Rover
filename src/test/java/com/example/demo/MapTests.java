@@ -195,5 +195,42 @@ class MapTests {
         String[][] visualizedMap = map.getVisualizedMap();
         Assertions.assertThat(visualizedMap).isEqualTo(controlVisualizedMap);
     }
+    @Test
+    void IfMapContainBothMinusAndPlus15DegreeHeighDifferencesShowThemOnVisualizedMap() {
+        Map map = new Map();
+        int[][] controllHeightMap = new int[][]{
+                {50, 100, 100, 100, 100},
+                {0, 50, 50, 50, 50},
+                {0, 50, 50, 50, 50},
+                {0, 50, 50, 50, 50},
+                {0, 50, 50, 50, 50},
+        };
+
+        String[][] controlVisualizedMap = new String[][]{
+                {"S", "M", "M", "M", "M"},
+                {"V", " ", " ", " ", " "},
+                {"V", " ", " ", " ", " "},
+                {"V", " ", " ", " ", " "},
+                {"V", " ", " ", " ", " "}
+        };
+        map.generateMap(5, 5);
+
+        for (int row = 0; row < map.mapFields.length; row++) {
+            for (int col = 0; col < map.mapFields[row].length; col++) {
+                if (row == 0 && col == 0) continue;
+                else if (row == 0){
+                    map.mapFields[row][col].height = 100;
+                } else if (col == 0){
+                    map.mapFields[row][col].height = 0;
+                }
+            }
+        }
+
+        map.setRover(0, 0, 'S');
+
+
+        String[][] visualizedMap = map.getVisualizedMap();
+        Assertions.assertThat(visualizedMap).isEqualTo(controlVisualizedMap);
+    }
 
 }
