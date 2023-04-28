@@ -4,13 +4,15 @@ public class Rover {
 
     private int x;
     private int y;
+    private int height;
     private String  direction;
 
-    private char height;
+    //private char height;
 
-    public Rover(int x, int y, String direction) {
+    public Rover(int x, int y,int h, String direction) {
         this.x = x;
         this.y = y;
+        this.height = h;
         this.direction = direction;
     }
 
@@ -80,4 +82,6 @@ public class Rover {
     public void setDirection(String  direction) {
         this.direction = direction;
     }
+
+
 }
