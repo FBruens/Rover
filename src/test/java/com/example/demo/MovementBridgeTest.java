@@ -17,8 +17,8 @@ public class MovementBridgeTest {
     @Test
     void ProcessMovementOrdersTest(){
         MovementBridge movementBridge = new MovementBridge();
-        assertEquals("f", movementBridge.processMovementOrders("fflff").get(0));
-        assertEquals("l", movementBridge.processMovementOrders("fflff").get(2));
+        assertEquals('f', movementBridge.processMovementOrders("fflff")[0]);
+        assertEquals('l', movementBridge.processMovementOrders("fflff")[2]);
 
     }
 }

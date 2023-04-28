@@ -15,7 +15,7 @@ public class Rover {
     }
 
 
-    public void moveRover(String movement) {
+    public Rover moveRover(String movement) {
         if (movement.equals("f")) {
             switch (direction) {
                 case "S" -> setY(-1);
@@ -32,7 +32,7 @@ public class Rover {
                 case "W" -> setX(+1);
             }
         }
-
+        return this;
     }
 
     public void turnRover(String turnDirection) {
