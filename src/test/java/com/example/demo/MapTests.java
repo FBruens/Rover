@@ -4,10 +4,16 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
+import static org.mockito.Mockito.when;
 
 @SpringBootTest
 class MapTests {
+
+    @Mock
+    private Map map;
 
     @ParameterizedTest
     @CsvSource(
@@ -95,11 +101,7 @@ class MapTests {
 
     @Test
     void IfPitchIsBelow15PercentVisualizedMapContainingSpaces() {
-
         Map map = new Map();
-        map.generateMap(5, 5);
-        map.setRover(0, 0, 'S');
-
         int[][] controllHeightMap = new int[][]{
                 {50, 50, 50, 50, 50},
                 {50, 50, 50, 50, 50},
@@ -107,6 +109,7 @@ class MapTests {
                 {50, 50, 50, 50, 50},
                 {50, 50, 50, 50, 50},
         };
+
         String[][] controlVisualizedMap = new String[][]{
                 {"S", " ", " ", " ", " "},
                 {" ", " ", " ", " ", " "},
@@ -114,7 +117,39 @@ class MapTests {
                 {" ", " ", " ", " ", " "},
                 {" ", " ", " ", " ", " "}
         };
-        Assertions.assertThat(map.getVisualizedMap()).isEqualTo(controlVisualizedMap);
+
+        map.generateMap(5, 5);
+        map.setRover(0, 0, 'S');
+
+
+        String[][] visualizedMap = map.getVisualizedMap();
+        Assertions.assertThat(visualizedMap).isEqualTo(controlVisualizedMap);
+    }
+    @Test
+    void IfPitchIsAbove15PercentVisualizedMapContainingSpaces() {
+        Map map = new Map();
+        int[][] controllHeightMap = new int[][]{
+                {50, 100, 100, 100, 100},
+                {100, 100, 100, 100, 100},
+                {100, 100, 100, 100, 100},
+                {100, 100, 100, 100, 100},
+                {100, 100, 100, 100, 100},
+        };
+
+        String[][] controlVisualizedMap = new String[][]{
+                {"S", "M", "M", "M", "M"},
+                {"M", "M", "M", "M", "M"},
+                {"M", "M", "M", "M", "M"},
+                {"M", "M", "M", "M", "M"},
+                {"M", "M", "M", "M", "M"}
+        };
+
+        map.generateMap(5, 5);
+        map.setRover(0, 0, 'S');
+
+
+        String[][] visualizedMap = map.getVisualizedMap();
+        Assertions.assertThat(visualizedMap).isEqualTo(controlVisualizedMap);
     }
 
 }
