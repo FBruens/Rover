@@ -18,9 +18,9 @@ public class MapField {
 
     public void setVisualizedField(int roverHeight) {
         if (!roverOnField) {
-            if (roverHeight - height > 15)
+            if (height - roverHeight > 15)
                 visualizedField = "M";
-            else if (roverHeight - height < -15)
+            else if (height - roverHeight < -15)
                 visualizedField = "V";
             else
                 this.visualizedField = " ";
