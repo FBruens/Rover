@@ -143,8 +143,17 @@ class MapTests {
                 {"M", "M", "M", "M", "M"},
                 {"M", "M", "M", "M", "M"}
         };
-
         map.generateMap(5, 5);
+
+        for (int row = 0; row < map.mapFields.length; row++) {
+            for (int col = 0; col < map.mapFields[row].length; col++) {
+                if (row == 0 && col == 0) continue;
+                else {
+                    map.mapFields[row][col].height = 100;
+                }
+            }
+        }
+
         map.setRover(0, 0, 'S');
 
 
