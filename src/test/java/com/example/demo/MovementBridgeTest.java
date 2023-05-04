@@ -21,4 +21,12 @@ public class MovementBridgeTest {
         assertEquals('l', movementBridge.processMovementOrders("fflff")[2]);
 
     }
+
+    @Test
+    void CommandRoverTest(){
+        MovementBridge movementBridge = new MovementBridge();
+        Rover rover = new Rover(0,0,50,"S");
+        rover.moveRover(movementBridge.processMovementOrders("ff")[0]);
+
+    }
 }

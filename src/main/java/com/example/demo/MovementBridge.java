@@ -5,7 +5,7 @@ import java.util.List;
 
 public class MovementBridge {
 
-    Rover rover = new Rover(0,0,"N");
+    Rover rover = new Rover(0,0,50,"N");
 
 
     public String validateMovementOrders(String movementOrders){

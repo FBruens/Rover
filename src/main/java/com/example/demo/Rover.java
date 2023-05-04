@@ -4,7 +4,7 @@ public class Rover {
 
     private int x;
     private int y;
-    private int height;
+    int height;
     private String  direction;
 
     //private char height;
@@ -15,10 +15,16 @@ public class Rover {
         this.height = h;
         this.direction = direction;
     }
+    public Rover(int x, int y,int h) {
+        this.x = x;
+        this.y = y;
+        this.height = h;
+        this.direction = "S";
+    }
 
 
-    public Rover moveRover(String movement) {
-        if (movement.equals("f")) {
+    public Rover moveRover(char movement) {
+        if (movement == 'f') {
             switch (direction) {
                 case "S" -> setY(-1);
                 case "N" -> setY(+1);
@@ -26,7 +32,7 @@ public class Rover {
                 case "W" -> setX(-1);
             }
         }
-        if (movement.equals("b")) {
+        if (movement == 'b') {
             switch (direction) {
                 case "S" -> setY(+1);
                 case "N" -> setY(-1);
