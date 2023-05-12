@@ -100,7 +100,7 @@ class MapTests {
     }
 
     @Test
-    void IfPitchIsBelow15PercentVisualizedMapContainingSpaces() {
+    void ifPitchIsBelow15PercentVisualizedMapContainingSpaces() {
         Map map = new Map();
         int[][] controllHeightMap = new int[][]{
                 {50, 50, 50, 50, 50},
@@ -126,7 +126,7 @@ class MapTests {
         Assertions.assertThat(visualizedMap).isEqualTo(controlVisualizedMap);
     }
     @Test
-    void IfPitchIsOver15PercentVisualizedMapContaining_M_ToVisualiseMountains() {
+    void ifPitchIsOver15PercentVisualizedMapContaining_M_ToVisualiseMountains() {
         Map map = new Map();
         int[][] controllHeightMap = new int[][]{
                 {50, 100, 100, 100, 100},
@@ -161,7 +161,7 @@ class MapTests {
         Assertions.assertThat(visualizedMap).isEqualTo(controlVisualizedMap);
     }
  @Test
-    void IfPitchIsUnder15PercentVisualizedMapContaining_V_ToVisualiseCliffs() {
+    void ifPitchIsUnder15PercentVisualizedMapContaining_V_ToVisualiseCliffs() {
         Map map = new Map();
         int[][] controllHeightMap = new int[][]{
                 {50, 0, 0, 0, 0},
@@ -196,7 +196,7 @@ class MapTests {
         Assertions.assertThat(visualizedMap).isEqualTo(controlVisualizedMap);
     }
     @Test
-    void IfMapContainBothMinusAndPlus15DegreeHeighDifferencesShowThemOnVisualizedMap() {
+    void ifMapContainBothMinusAndPlus15DegreeHeighDifferencesShowThemOnVisualizedMap() {
         Map map = new Map();
         int[][] controllHeightMap = new int[][]{
                 {50, 100, 100, 100, 100},
