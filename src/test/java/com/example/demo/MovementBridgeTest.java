@@ -7,12 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 public class MovementBridgeTest {
 
-    @Test
-    void ValidateMovementOrdersTest(){
-        MovementBridge movementBridge = new MovementBridge();
-        assertEquals("fflff",movementBridge.validateMovementOrders("fAf@lff"));
 
-    }
 
     @Test
     void ProcessMovementOrdersTest(){

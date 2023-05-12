@@ -25,13 +25,13 @@ class RoverTest {
 @Test
     void moveRoverTest(){
     Rover rover = new Rover(0,0,50,"S");
-    rover.moveRover("f");
+    rover.moveRover('f');
     assertEquals(-1,rover.getY());
 }
 @Test
 void moveRoverFalseInputTest(){
     Rover rover = new Rover(0,0,50,"S");
-    rover.moveRover("W");
+    rover.moveRover('W');
     assertEquals(0,rover.getY());
 
 }
