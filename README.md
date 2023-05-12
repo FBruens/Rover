@@ -1,5 +1,6 @@
 # TDD_Rover
 
+# Aufgabenstellung
 
 Testgetriebene Roverentwicklung
 
@@ -33,3 +34,11 @@ Implementiert eine Hinderniserkennung vor jedem Zug auf ein neues Feld. Wenn ein
 Die Simulation soll jederzeit abgebrochen und zu einem späteren Zeitpunkt fortgesetzt wer-den können. Der Spielstand muss also gespeichert und wieder geladen werden können. Die Datenbank ist frei wählbar, d.h. es kann eine beliebige relationale Datenbank oder eine NoSQL-Datenbank gewählt werden. Das Programm sollte aber out of the box laufen. Lasst die Datenbank daher in einem Dockercontainer laufen oder verwendet eine über das Netz er-reichbare Datenbank.
 
 Die Anwendung ist testgetrieben mit Java, Junit und Mockito zu entwickeln. Euer Projekt ist wie folgt zu versionieren: Nach jedem roten Test ist ein Commit zu erstellen: Schreibt also einen roten Test, committet. Danach führt ihr die Implementierung, das Refactoring durch und schreibt den nächsten roten Test. Nun ist wiederum zu committen. Der Commit soll je-weils mit dem Klassennamen, für die der aktuelle Test geschrieben wird, sowie dem Namen der Testmethode bezeichnet werden.
+
+
+# To-Do
+
+Aufgrund unerwartetes Fehlen von Gruppenmitgliedern und der mangelnden Zeit der Implementierung, konnte die Datenbankanbindung nicht implementiert werden.
+
+Da die Anbindung ans Git-Repository ebenfalls mit Hindernissen erfolgte, wurde parallel an unterschiedlichen Klassen getestet.
+Aufgrund dessen war die Implementierung der Test zu den Kohärenzen zwischen den Klassen nit erfolgen.
